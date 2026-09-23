@@ -2,7 +2,7 @@
 
 TypeScript実装の基礎学習用リポジトリ
 
-## Init Project
+## プロジェクト作成
 
 ### 2回目以降（このリポジトリをテンプレートとして使う場合、推奨）
 
@@ -16,28 +16,19 @@ npm install
 
 ### ゼロから作る場合
 
+1. このリポジトリにある`.devcontainer`をコピーする
+2. VSCodeで開く
+3. DevContainerで開く
+4. 以下を順に実施する
+
+#### 4-1. package.json を生成し、依存パッケージをインストール
+
 ```bash
-npm init -y                 # package.json を自動生成
+npm init -y
 npm install -D typescript @tsconfig/node22 ts-node nodemon jest ts-jest @types/jest @types/node
-npx eslint --init            # eslint.config.js（Flat Config）を対話形式で生成
 ```
 
-`eslint --init`の質問には以下で回答する。
-
-| 質問                                | 回答                               |
-| ----------------------------------- | ---------------------------------- |
-| How would you like to use ESLint?   | To check syntax and find problems  |
-| What type of modules?               | JavaScript modules (import/export) |
-| Which framework?                    | None of these                      |
-| Does your project use TypeScript?   | Yes                                |
-| Where does your code run?           | Node（Browserは外す）              |
-| Which language for config file?     | JavaScript                         |
-| Would you like to install them now? | Yes                                |
-| package manager                     | npm                                |
-
-**注意**: 対話中にチェックボックス選択（スペースキー）が効かない場合、日本語入力(IME)がオンになっている可能性が高い。英数モードに切り替えて再実行する。
-
-## tsconfig.json を作成
+#### 4-2. tsconfig.json を新規作成
 
 `@tsconfig/node22`をベースにすることで、Node.js向けの`lib`・`types`・`module`などを手動設定する手間を省く。  
 以下の内容で`tsconfig.json`を新規作成する（`npx tsc --init`は使わない）。
@@ -53,9 +44,32 @@ npx eslint --init            # eslint.config.js（Flat Config）を対話形式�
 }
 ```
 
-## package.json 補足
+#### 4-3. eslint.config.js を生成
 
-MCP SDKなどESM前提のライブラリを使う場合は`"type": "module"`を追加する。`scripts`は以下を追記する。
+```bash
+npx eslint --init
+```
+
+質問には以下で回答する。
+
+| 質問                                | 回答                               |
+| ----------------------------------- | ---------------------------------- |
+| How would you like to use ESLint?   | To check syntax and find problems  |
+| What type of modules?               | JavaScript modules (import/export) |
+| Which framework?                    | None of these                      |
+| Does your project use TypeScript?   | Yes                                |
+| Where does your code run?           | Node（Browserは外す）              |
+| Which language for config file?     | JavaScript                         |
+| Would you like to install them now? | Yes                                |
+| package manager                     | npm                                |
+
+**注意**: 対話中にチェックボックス選択（スペースキー）が効かない場合、日本語入力(IME)がオンになっている可能性が高い。  
+英数モードに切り替えて再実行する。
+
+#### 4-4. package.json を編集
+
+MCP SDKなどESM前提のライブラリを使う場合は`"type": "module"`を追加する。  
+`scripts`は以下を追記する。
 
 ```jsonc
 {
@@ -69,7 +83,7 @@ MCP SDKなどESM前提のライブラリを使う場合は`"type": "module"`を�
 }
 ```
 
-## エントリーポイントを作成
+#### 4-5. エントリーポイントを作成
 
 ```bash
 mkdir src
