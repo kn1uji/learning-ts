@@ -7,18 +7,23 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "dbaeumer.vscode-eslint",      // Checkstyle/SpotBugs 相当
-        "esbenp.prettier-vscode",      // google-java-format 相当
-        "ms-vscode.vscode-typescript-next",
-        "usernamehw.errorlens",        // インライン型エラー表示
-        "eamodio.gitlens"
+        // "ms-vscode.vscode-typescript-next",
+        // "eamodio.gitlens",
+        "dbaeumer.vscode-eslint", // Checkstyle/SpotBugs 相当
+        "esbenp.prettier-vscode", // google-java-format 相当
+        "usernamehw.errorlens" // インライン型エラー表示
       ],
       "settings": {
         "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "typescript.tsdk": "node_modules/typescript/lib",
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[json]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "js/ts.tsdk.path": "node_modules/typescript/lib",
         "editor.codeActionsOnSave": {
-          "source.fixAll.eslint": true
+          "source.fixAll.eslint": "explicit"
         }
       }
     }
