@@ -26,7 +26,7 @@ npm install
 ```bash
 npm init -y
 npm install -D typescript@6.0.3 --save-exact
-npm install -D tsx @types/node jest ts-jest @types/jest @tsconfig/node22
+npm install -D tsx @types/node vitest @tsconfig/node22
 ```
 
 **注意**: `typescript`はバージョン指定なしでインストールすると7系が入り、`typescript-eslint`(peer要件 `<6.1.0`)と衝突してESLintのセットアップ(4-3)が失敗する。  
@@ -98,7 +98,7 @@ echo "console.log('hello world');" > src/index.ts
 ## Run/Build Project
 
 ```bash
-npm run dev              # nodemon + ts-node でファイル保存のたびに自動実行（学習中はこれが楽）
+npm run dev  # tsx watch でファイル保存のたびに高速自動再実行
 npm run build && npm run start  # tsc でコンパイル → dist/index.js を node で実行
 npm run lint              # ESLintでコード検査
 ```
