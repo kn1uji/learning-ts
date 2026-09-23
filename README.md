@@ -80,13 +80,15 @@ MCP SDKなどESM前提のライブラリを使う場合は`"type": "module"`を�
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "test": "jest",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "start": "node dist/index.js",
     "dev": "tsx watch src/index.ts",
-    "lint": "eslint src",
-  },
+    "lint": "eslint src"
+  }
 }
 ```
+
 
 #### 4-5. エントリーポイントを作成
 
@@ -98,9 +100,10 @@ echo "console.log('hello world');" > src/index.ts
 ## Run/Build Project
 
 ```bash
-npm run dev  # tsx watch でファイル保存のたびに高速自動再実行
+npm run dev                     # tsx watch でファイル保存のたびに高速自動再実行
+npm run test                    # Vitest で単体テストを実行
 npm run build && npm run start  # tsc でコンパイル → dist/index.js を node で実行
-npm run lint              # ESLintでコード検査
+npm run lint                    # ESLintでコード検査
 ```
 
 ## Java経験者向けメモ
@@ -113,5 +116,5 @@ npm run lint              # ESLintでコード検査
 | 名前的型付け（implements必須） | 構造的型付け（形が同じなら互換）                     |
 | `Optional<T>`                  | `T \| null` / `T \| undefined`（`strictNullChecks`） |
 | `CompletableFuture<T>`         | `Promise<T>`                                         |
-| JUnit                          | Jest                                                 |
+| JUnit                          | Vitest / Jest                                                 |
 | コンパイル後も型情報が一部残る | コンパイル後、型情報は完全に消える（型消去）         |
