@@ -35,6 +35,5 @@
     "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
   ],
   "onCreateCommand": "sudo chown -R node:node node_modules",
-  "postCreateCommand": "npm install || true",
   "remoteUser": "node"
 }

@@ -24,6 +24,7 @@ npm install
 #### 4-1. package.json を生成し、依存パッケージをインストール
 
 ```bash
+npm install
 npm init -y
 npm install -D typescript@6.0.3 --save-exact
 npm install -D tsx @types/node vitest @tsconfig/node22
@@ -84,11 +85,10 @@ MCP SDKなどESM前提のライブラリを使う場合は`"type": "module"`を�
     "test:watch": "vitest",
     "start": "node dist/index.js",
     "dev": "tsx watch src/index.ts",
-    "lint": "eslint src"
-  }
+    "lint": "eslint src",
+  },
 }
 ```
-
 
 #### 4-5. エントリーポイントを作成
 
@@ -116,5 +116,5 @@ npm run lint                    # ESLintでコード検査
 | 名前的型付け（implements必須） | 構造的型付け（形が同じなら互換）                     |
 | `Optional<T>`                  | `T \| null` / `T \| undefined`（`strictNullChecks`） |
 | `CompletableFuture<T>`         | `Promise<T>`                                         |
-| JUnit                          | Vitest / Jest                                                 |
+| JUnit                          | Vitest / Jest                                        |
 | コンパイル後も型情報が一部残る | コンパイル後、型情報は完全に消える（型消去）         |
