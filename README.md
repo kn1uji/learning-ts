@@ -16,7 +16,7 @@ npm install
 
 ### ゼロから作る場合
 
-1. このリポジトリにある`.devcontainer`をコピーする
+1. このリポジトリにある`.devcontainer`と`.gitignore`をコピーする
 2. VSCodeで開く
 3. DevContainerで開く
 4. 以下を順に実施する
