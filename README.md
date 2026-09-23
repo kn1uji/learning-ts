@@ -25,8 +25,12 @@ npm install
 
 ```bash
 npm init -y
-npm install -D typescript @tsconfig/node22 ts-node nodemon jest ts-jest @types/jest @types/node
+npm install -D typescript@6.0.3 --save-exact
+npm install -D @tsconfig/node22 ts-node nodemon jest ts-jest @types/jest @types/node
 ```
+
+**注意**: `typescript`はバージョン指定なしでインストールすると7系が入り、`typescript-eslint`(peer要件 `<6.1.0`)と衝突してESLintのセットアップ(4-3)が失敗する。  
+`typescript-eslint`がTypeScript 7に対応するまでは`6.0.3`に固定する。
 
 #### 4-2. tsconfig.json を新規作成
 
