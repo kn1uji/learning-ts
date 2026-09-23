@@ -4,6 +4,7 @@
 npm init -y # package.json を自動生成
 npx tsc --init # tsconfig.json を自動生成（コメント付きで親切）
 npx eslint --init # .eslintrc.json を対話形式で生成
+npm install -D typescript ts-node nodemon jest ts-jest @types/jest @types/node
 ```
 
 ## Run/Build Project
