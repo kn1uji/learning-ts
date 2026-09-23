@@ -1,12 +1,18 @@
+# 依存関係(package.jsonから再現可能なので不要)
 node_modules/
-.env
-.env.*
-.DS_Store
-npm-debug.log*
-coverage/
+
+# ビルド成果物(tscが生成するので不要)
 dist/
-build/
-.vite/
-.cache/
-.parcel-cache/
+
+# ログ
+npm-debug.log*
 *.log
+
+# 環境変数(秘密情報が含まれる可能性)
+.env
+.env.local
+
+# OS/エディタ固有ファイル
+.DS_Store
+.vscode/*
+!.vscode/extensions.json

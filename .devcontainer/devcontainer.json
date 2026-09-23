@@ -28,6 +28,6 @@
       }
     }
   },
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "npm install || true",
   "remoteUser": "node"
 }
