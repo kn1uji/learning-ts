@@ -1,17 +1,20 @@
 {
   "name": "TypeScript Study",
-  "build": {
-    "context": "..",
-    "dockerfile": "Dockerfile"
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": "false",
+      "configureZshAsDefaultShell": "false",
+      "installOhMyZsh": "false",
+      "upgradePackages": "false"
+    }
   },
   "customizations": {
     "vscode": {
       "extensions": [
-        // "ms-vscode.vscode-typescript-next",
-        // "eamodio.gitlens",
-        "dbaeumer.vscode-eslint", // Checkstyle/SpotBugs 相当
-        "esbenp.prettier-vscode", // google-java-format 相当
-        "usernamehw.errorlens" // インライン型エラー表示
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "usernamehw.errorlens"
       ],
       "settings": {
         "editor.formatOnSave": true,
@@ -28,6 +31,10 @@
       }
     }
   },
+  "mounts": [
+    "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+  ],
+  "onCreateCommand": "sudo chown -R node:node node_modules",
   "postCreateCommand": "npm install || true",
   "remoteUser": "node"
 }

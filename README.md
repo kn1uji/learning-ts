@@ -26,7 +26,7 @@ npm install
 ```bash
 npm init -y
 npm install -D typescript@6.0.3 --save-exact
-npm install -D @tsconfig/node22 ts-node nodemon jest ts-jest @types/jest @types/node
+npm install -D tsx @types/node jest ts-jest @types/jest @tsconfig/node22
 ```
 
 **注意**: `typescript`はバージョン指定なしでインストールすると7系が入り、`typescript-eslint`(peer要件 `<6.1.0`)と衝突してESLintのセットアップ(4-3)が失敗する。  
@@ -80,8 +80,9 @@ MCP SDKなどESM前提のライブラリを使う場合は`"type": "module"`を�
   "type": "module",
   "scripts": {
     "build": "tsc",
+    "test": "jest",
     "start": "node dist/index.js",
-    "dev": "nodemon --watch src -e ts --exec ts-node src/index.ts",
+    "dev": "tsx watch src/index.ts",
     "lint": "eslint src",
   },
 }
