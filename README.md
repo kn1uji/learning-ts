@@ -24,8 +24,8 @@ npm install
 #### 4-1. package.json を生成し、依存パッケージをインストール
 
 ```bash
-npm install
 npm init -y
+npm install
 npm install -D typescript@6.0.3 --save-exact
 npm install -D tsx @types/node vitest @tsconfig/node22
 ```
